@@ -1,7 +1,7 @@
-#Make Change Project
+# Make Change Project
 
-##Airik Leon
-##Sept 2017
+## Airik Leon
+## Sept 2017
 
 First week project for Skill Distillery. 
 Demonstrates: 
