@@ -1,5 +1,7 @@
 #Make Change Project
 
+##Airik Leon
+
 First week project for Skill Distillery. 
 Demonstrates: 
 * Basic Java Language 
