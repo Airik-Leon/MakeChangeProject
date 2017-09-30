@@ -1,4 +1,3 @@
-import java.util.InputMismatchException;
 import java.util.Scanner; 
 public class CashRegister {
 	
@@ -33,19 +32,12 @@ public class CashRegister {
 		Scanner input = new Scanner(System.in);
 		
 		while(nextPurchase) {
-			try {
 				//Console inputs/outputs
 				System.out.print("What is the price of the item : " );
 				System.out.print("\n >>");
 				itemPrice = input.nextDouble();
 				System.out.print("\n Enter your amount tendered:  \n >>" );
 				customerTendered = input.nextDouble(); 
-			}
-			catch(InputMismatchException e) {
-				System.out.print("Values must be in decimal format. Example: 3.24");
-				
-			}
-			finally {
 				
 				VerifyTendered(itemPrice, customerTendered); 
 				
@@ -56,8 +48,8 @@ public class CashRegister {
 				ChangeMaker(itemPrice, customerTendered);
 				DisplayChange();	
 				NextPurchase();
-			}
 		}
+		input.close();
 	}
 	
 	public static void VerifyTendered(double itemPrice, double amountTendered) {
@@ -166,6 +158,7 @@ public class CashRegister {
 			total_Pennies = 0; 
 		}
 		else {
+			input.close();
 			System.out.println("Goodbye!");
 			nextPurchase = false; 
 		}
