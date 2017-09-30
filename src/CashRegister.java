@@ -74,66 +74,45 @@ public class CashRegister {
 		
 		double convertedTendered =  customerTendered * 100; 
 		double convertedItemPrice =itemPrice * 100; 
-		double changeReturnedInPennies = convertedTendered - convertedItemPrice; 
+		double changeReturnedInPennies = convertedTendered - convertedItemPrice;
 		
-		while(changeReturnedInPennies !=0) {
-			if( changeReturnedInPennies % _100_DOLLARS == 0 ) {
-				changeReturnedInPennies = changeReturnedInPennies - _100_DOLLARS; 
-				total_100_Dollars++; 
-				continue;
-			}
-			else if(changeReturnedInPennies  %  FIFTY_DOLLARS ==0) {
-				changeReturnedInPennies = changeReturnedInPennies - FIFTY_DOLLARS; 
-				total_Fifty_Dollars++;
-				continue;
-			}
-			else if(changeReturnedInPennies % TWENTY_DOLLARS ==0) {
-				changeReturnedInPennies = changeReturnedInPennies - TWENTY_DOLLARS; 
-				total_TwentyDollars++; 
-				continue;
-			}
-			else if(changeReturnedInPennies % TEN_DOLLARS ==0) {
-				changeReturnedInPennies = changeReturnedInPennies - TEN_DOLLARS; 
-				total_TenDollars++; 
-				continue;
-			}
-			else if(changeReturnedInPennies % FIVE_DOLLARS ==0) {
-				changeReturnedInPennies = changeReturnedInPennies - FIVE_DOLLARS; 
-				total_FiveDollars++; 
-				continue; 
-			}
-			else if(changeReturnedInPennies % DOLLARS == 0) {
-				changeReturnedInPennies = changeReturnedInPennies - DOLLARS; 
-				total_Dollars++; 
-				continue; 
-			}
-			else if(changeReturnedInPennies % QUARTERS ==0) {
-				changeReturnedInPennies = changeReturnedInPennies - QUARTERS; 
-				total_Quarters++;
-				continue; 
-			}
-			else if(changeReturnedInPennies % DIMES ==0) {
-				changeReturnedInPennies = changeReturnedInPennies - DIMES; 
-				total_Dimes++; 
-				continue; 
-			}
-			else if(changeReturnedInPennies % NICKELS ==0) {
-				changeReturnedInPennies = changeReturnedInPennies - NICKELS; 
-				total_Nickels++; 
-				continue;
-			}
-			else if(changeReturnedInPennies % PENNIES ==0) {
-				changeReturnedInPennies = changeReturnedInPennies - PENNIES; 
-				total_Pennies++; 
-				continue; 
-			}
-		}
+		
+		total_100_Dollars = (int)changeReturnedInPennies / _100_DOLLARS;
+		changeReturnedInPennies = changeReturnedInPennies -(total_100_Dollars * _100_DOLLARS);
+		
+		total_Fifty_Dollars = (int) changeReturnedInPennies / FIFTY_DOLLARS;
+		changeReturnedInPennies = changeReturnedInPennies - (total_Fifty_Dollars * FIFTY_DOLLARS);
+		
+		total_TwentyDollars = (int) changeReturnedInPennies / TWENTY_DOLLARS; 
+		changeReturnedInPennies = changeReturnedInPennies - (total_TwentyDollars * TWENTY_DOLLARS);
+		
+		total_TenDollars = (int) changeReturnedInPennies / TEN_DOLLARS; 
+		changeReturnedInPennies = changeReturnedInPennies - (total_TenDollars * TEN_DOLLARS);
+		
+		total_FiveDollars = (int) changeReturnedInPennies / FIVE_DOLLARS; 
+		changeReturnedInPennies = changeReturnedInPennies - (total_FiveDollars * FIVE_DOLLARS);
+		
+		total_Dollars= (int) changeReturnedInPennies / DOLLARS; 
+		changeReturnedInPennies = changeReturnedInPennies - (total_Dollars * DOLLARS);
+		
+		total_Quarters = (int) changeReturnedInPennies / QUARTERS; 
+		changeReturnedInPennies = changeReturnedInPennies - ( total_Quarters* QUARTERS);
+		
+		total_Dimes = (int) changeReturnedInPennies / DIMES; 
+		changeReturnedInPennies = changeReturnedInPennies - (total_Dimes * DIMES);
+		
+		total_Nickels = (int) changeReturnedInPennies / NICKELS; 
+		changeReturnedInPennies = changeReturnedInPennies - (total_Nickels * NICKELS);
+		
+		total_Pennies = (int) changeReturnedInPennies / PENNIES; 
+		changeReturnedInPennies = changeReturnedInPennies - (total_Pennies * PENNIES);
+
 	}
 	
 	public static void DisplayChange() {
 		System.out.println(" 100 Dollars\t\t50 Dollars\t\t20 Dollars\t\t10 Dollars\t\t5 Dollars\t\t1 Dollars\t\tQuarters\t\tDimes\t\tNickels\t\tPennies");
 		System.out.println("\t" + total_100_Dollars + "\t\t\t\t" + total_Fifty_Dollars + "\t\t\t\t" + total_TwentyDollars + "\t\t\t\t" + total_TenDollars + "\t\t\t\t" + total_FiveDollars + "\t\t\t" + total_Dollars +  "\t\t\t" + total_Quarters + "\t\t\t"
-		+ total_Dimes + "\t\t\t"+ total_Nickels  + "\t\t\t" + total_Pennies);
+		+ total_Dimes + "\t\t"+ total_Nickels  + "\t\t\t" + total_Pennies);
 	}
 	
 	public static void NextPurchase() {
