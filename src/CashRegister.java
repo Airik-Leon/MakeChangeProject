@@ -46,7 +46,7 @@ public class CashRegister {
 				}
 				
 				ChangeMaker(itemPrice, customerTendered);
-				DisplayChange();	
+				System.out.println();
 				NextPurchase();
 		}
 		input.close();
@@ -106,13 +106,41 @@ public class CashRegister {
 		
 		total_Pennies = (int) changeReturnedInPennies / PENNIES; 
 		changeReturnedInPennies = changeReturnedInPennies - (total_Pennies * PENNIES);
-
+		
+		if(total_100_Dollars >0) {
+			DisplayChange("100 Dollars: ", total_100_Dollars);
+		}
+		if(total_Fifty_Dollars > 0) {
+			DisplayChange("50 Dollars: ", total_Fifty_Dollars);
+		}
+		if(total_TwentyDollars > 0) {
+			DisplayChange("20 Dollars: ", total_TwentyDollars);
+		}
+		if(total_TenDollars >0) {
+			DisplayChange("10 Dollars: ", total_TenDollars);
+		}
+		if(total_FiveDollars > 0) {
+			DisplayChange("5 Dollars: ", total_FiveDollars);
+		}
+		if(total_Dollars >0) {
+			DisplayChange("Dollars: ", total_Dollars);
+		}
+		if(total_Quarters > 0) {
+			DisplayChange("Quarters: ", total_Quarters);
+		}
+		if(total_Dimes > 0) {
+			DisplayChange("Dimes: ", total_Dimes);
+		}
+		if(total_Nickels > 0) {
+			DisplayChange("Nickels: ", total_Nickels);
+		}
+		if(total_Pennies >0) {
+			DisplayChange("Pennies: ", total_Pennies); 
+		}
 	}
-	
-	public static void DisplayChange() {
-		System.out.println(" 100 Dollars\t\t50 Dollars\t\t20 Dollars\t\t10 Dollars\t\t5 Dollars\t\t1 Dollars\t\tQuarters\t\tDimes\t\tNickels\t\tPennies");
-		System.out.println("\t" + total_100_Dollars + "\t\t\t\t" + total_Fifty_Dollars + "\t\t\t\t" + total_TwentyDollars + "\t\t\t\t" + total_TenDollars + "\t\t\t\t" + total_FiveDollars + "\t\t\t" + total_Dollars +  "\t\t\t" + total_Quarters + "\t\t\t"
-		+ total_Dimes + "\t\t"+ total_Nickels  + "\t\t\t" + total_Pennies);
+	public static void DisplayChange(String name, int count) {
+		
+		System.out.print(name  + " "+ count + "\t");
 	}
 	
 	public static void NextPurchase() {
