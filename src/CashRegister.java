@@ -61,7 +61,7 @@ public class CashRegister {
 			System.out.println("The amount tendered: " + System.out.printf("$.2f", amountTendered) + " is the exact price of " + System.out.printf("%.2f",  itemPrice));
 		}
 		else {
-			System.out.print("....working Returning Change: \n $" );
+			System.out.print("....working Returning Change: $" );
 			System.out.printf("%.2f", amountTendered - itemPrice );
 			System.out.println();
 			notEnough = false; 			
